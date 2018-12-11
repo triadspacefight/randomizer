@@ -18,7 +18,7 @@ $count = $_POST['songcount'];
 $leg = $_POST['legg'];
 
 if (isset($_POST['legg'])){
-echo $_POST['legg'];
+echo "<center><img src='./images/leg.png' height=60 width=197></center>";
 }
 
 if ($mysqli->connect_error) {

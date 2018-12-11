@@ -2,7 +2,13 @@ mark{
     background: orange;
     color: black;
 }
-#t1 {border:solid 1px black; border-spacing:4px; border-collapse:separate;}
+
+@font-face {
+  font-family: 'ddraw';
+  src: url('./fonts/2051plastic-alp53.ttf') format('truetype');
+}
+
+#t1 {border:solid 1px black; border-spacing:4px; border-collapse:separate; font-family:ddraw;}
 #t1 th {font-weight:bold;}
 #t1 .c1 {background-color:#33cc33;}
 #t1 .c2 {background-color:#6F9;}
@@ -12,4 +18,6 @@ mark{
 #t1 .c6 {background-color:#ff0000;}
 #t1 .c7 {background-color:#69F;}
 #t1 .r1 {color:red;}
-#t1 td, #t1 th {border:solid 1px black; padding:4px;}
+#t1 td, #t1 th {border:solid 1px black; padding:4px;font-family:ddraw;}
+
+

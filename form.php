@@ -1,17 +1,32 @@
 <html>
 <head>
 <title>DistorteDDraW</title>
-<link rel="stylesheet" type="text/css" href="dd.css">
+<link rel="stylesheet" type="text/css" href="./dd.css">
+<style>
+@font-face {
+  font-family: "ddraw";
+  src: url("./fonts/2051plastic-alp53.ttf") format('truetype');
+}
+div {
+    font-family: "ddraw";
+}
+
+</style>
+
+
 </head>
 
 <body>
 <center>
 <img src="./images/logo.png">
+
 <form action="results.php" method="post">
 
 <table id="t1" align=center>
 <tr><td>
+<div>
 Select Style Folder
+</div>
 </td>
 <td>
 <select name="iidxstyle">
