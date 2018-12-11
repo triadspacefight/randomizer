@@ -1,0 +1,15 @@
+mark{
+    background: orange;
+    color: black;
+}
+#t1 {border:solid 1px black; border-spacing:4px; border-collapse:separate;}
+#t1 th {font-weight:bold;}
+#t1 .c1 {background-color:#69F;}
+#t1 .c2 {background-color:#6F9;}
+#t1 .c3 {background-color:#96F;}
+#t1 .c4 {background-color:#69F;}
+#t1 .c5 {background-color:#ff9900;}
+#t1 .c6 {background-color:#ff0000;}
+#t1 .c7 {background-color:#69F;}
+#t1 .r1 {color:red;}
+#t1 td, #t1 th {border:solid 1px black; padding:4px;}
