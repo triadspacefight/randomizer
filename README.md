@@ -1,2 +1,2 @@
-# randomizer
-Randomizer Test Script
+# DistoreDDraw
+A Beatmania IIDX Card Draw Application
