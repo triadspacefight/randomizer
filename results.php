@@ -17,6 +17,10 @@ $dif = $_POST['difsel'];
 $count = $_POST['songcount'];
 $leg = $_POST['legg'];
 
+if (isset($_POST['legg'])){
+echo $_POST['legg'];
+}
+
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
@@ -24,17 +28,17 @@ if ($mysqli->connect_error) {
 
 echo "<center><a href=./form.php><img src='./images/redraw.png' alt='ReDraW!'></a>   <a href='javascript:window.location.reload(true)'><img src='./images/refresh.png' alt='ReDraW!'></a></center>";
 
-if ($leg="1") {
+if (isset($_POST['legg'])) {
         
         $sql = "SELECT genre,song,artist,spn,sph,spa,songid,style FROM Songs WHERE '$dif' IN(SPN,SPH,SPA) ORDER BY RAND() LIMIT $count";
 
 }  elseif ($style!="0") {
 
-        $sql = "SELECT genre,song,artist,spn,sph,spa,songid,style FROM Songs WHERE style LIKE '$style' AND song NOT LIKE '%†' AND '$dif' IN(SPN,SPH,SPA) ORDER BY RAND() LIMIT $count";
+        $sql = "SELECT genre,song,artist,spn,sph,spa,songid,style FROM Songs WHERE style LIKE '$style' AND '0' NOT IN(spn) AND '$dif' IN(SPN,SPH,SPA) ORDER BY RAND() LIMIT $count";
 
 }  else {
 
-        $sql = "SELECT genre,song,artist,spn,sph,spa,songid,style FROM Songs WHERE '$dif' IN(SPN,SPH,SPA) AND song NOT LIKE '%†' ORDER BY RAND() LIMIT $count";
+        $sql = "SELECT genre,song,artist,spn,sph,spa,songid,style FROM Songs WHERE '$dif' IN(SPN,SPH,SPA) AND '0' NOT IN(spn) ORDER BY RAND() LIMIT $count";
 }
 
 $result = $mysqli->query($sql);

@@ -57,7 +57,7 @@ Number Of Songs:
 </select>
 </td></tr>
 <tr colspan=2><td colspan=2 align=center>
-<input type="checkbox" name="legg" value="1"> Include Leggendaria Charts
+<input type="checkbox" name="legg" value="leg"> Include Leggendaria Charts
 </td></tr>
 <tr colspan=2><td colspan=2 align=center>
 <input type="submit" value="Draw!" />
