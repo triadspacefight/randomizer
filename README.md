@@ -1,4 +1,4 @@
-# DistoreDDraw
+# DistoreDDraW
 A Beatmania IIDX Card Draw Application<br>
 By triadspacefight
 
