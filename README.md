@@ -24,5 +24,5 @@ Database 'randomizer' with Table 'songs', can be imported using iidxrandomizer.c
 
 # Stretch Goals:
 -Android/iOS App<br>
--User Profiles using Google Auth
+-User Profiles using Google Auth<br>
 -Offline mode for Tournament Usage
