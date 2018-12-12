@@ -39,6 +39,9 @@ Select Style Folder
 Difficulty Choice
 </td>
 <td>
+
+<!-- Inital Difficulty Selection, Single
+
 <select name="difsel">
   <option value="1" selected="selected">1</option>
   <option value="2" >2</option>
@@ -53,7 +56,38 @@ Difficulty Choice
   <option value="11" >11</option>
   <option value="12" >12</option>
 </select>
-</td></tr>
+-->
+Min
+<select name="difmin">
+  <option value="1" selected="selected">1</option>
+  <option value="2" >2</option>
+  <option value="3" >3</option>
+  <option value="4" >4</option>
+  <option value="5" >5</option>
+  <option value="6" >6</option>
+  <option value="7" >7</option>
+  <option value="8" >8</option>
+  <option value="9" >9</option>
+  <option value="10" >10</option>
+  <option value="11" >11</option>
+  <option value="12" >12</option>
+</select>
+Max
+<select name="difmax">
+  <option value="1" selected="selected">1</option>
+  <option value="2" >2</option>
+  <option value="3" >3</option>
+  <option value="4" >4</option>
+  <option value="5" >5</option>
+  <option value="6" >6</option>
+  <option value="7" >7</option>
+  <option value="8" >8</option>
+  <option value="9" >9</option>
+  <option value="10" >10</option>
+  <option value="11" >11</option>
+  <option value="12" >12</option>
+</select>
+</tr>
 <tr><td>
 Number Of Songs:
 </td>
