@@ -5,8 +5,9 @@ echo "<html><head>";
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"dd.css\">";
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"veto.css\">";
 echo "<script type=\"text/javascript\" src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' charset=\"utf-8\" async defer></script>";
-echo "<script type='text/javascript' src='./veto.js' async defer></script>";
-
+echo "<script type='text/javascript' src='./veto.js'></script>";
+echo "<script src=\"jquery.translucent.min.js\"></script>";
+echo "<script src=\"cards.js\"></script>";
 echo "</head><body>";
 
 
@@ -54,6 +55,8 @@ echo "</div></td></tr></table>";
 
 
 echo "<table align=center width=80%><tr><td align=center><a href=./form2.php><img src='./images/redraw.png' alt='ReDraW!'></a></td><td align=center><a href='javascript:window.location.reload(true)'><img src='./images/refresh.png' alt='ReDraW!'></a></center></td></tr>";
+
+echo "<div id=\"your-background\"><div class=\"your-card\"><div class=\"tl-card-contents\">Hello!</div></div></div>";
 
 echo $leg;
 
