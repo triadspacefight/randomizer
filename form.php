@@ -20,7 +20,7 @@ div {
 <center>
 <img src="./images/logo.png">
 
-<form action="results.php" method="post">
+<form action="results2.php" method="post">
 
 <table id="t1" align=center>
 <tr><td>

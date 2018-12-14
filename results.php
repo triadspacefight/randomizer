@@ -3,8 +3,10 @@
 header('Content-Type: text/html;charset=utf-8');
 echo "<html><head>";
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"dd.css\">";
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"modal.css\">";
-echo "<script type=\"text/javascript\" src=\"modal.js\" charset=\"utf-8\" async defer></script>";
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"veto.css\">";
+echo "<script type=\"text/javascript\" src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' charset=\"utf-8\" async defer></script>";
+echo "<script type='text/javascript' src='./veto.js' async defer></script>";
+
 echo "</head><body>";
 
 
@@ -51,13 +53,15 @@ echo "</div></td></tr></table>";
 //echo "</td></tr></table>";
 
 
-echo "<table align=center width=80%><tr><td align=center><a href=./form.php><img src='./images/redraw.png' alt='ReDraW!'></a></td><td align=center><a href='javascript:window.location.reload(true)'><img src='./images/refresh.png' alt='ReDraW!'></a></center></td></tr>";
+echo "<table align=center width=80%><tr><td align=center><a href=./form2.php><img src='./images/redraw.png' alt='ReDraW!'></a></td><td align=center><a href='javascript:window.location.reload(true)'><img src='./images/refresh.png' alt='ReDraW!'></a></center></td></tr>";
 
-if (isset($_POST['legg'])) {
+echo $leg;
+
+if ($leg=='leg') {
         
         $sql = "SELECT genre,song,artist,spn,sph,spa,songid,style 
                 FROM Songs 
-                spn BETWEEN '$difmin' and '$difmax' OR
+                WHERE spn BETWEEN '$difmin' and '$difmax' OR
                 sph BETWEEN '$difmin' and '$difmax' OR
                 spa BETWEEN '$difmin' and '$difmax'  
                 ORDER BY RAND() 
@@ -67,8 +71,7 @@ if (isset($_POST['legg'])) {
 
         $sql = "SELECT genre,song,artist,spn,sph,spa,songid,style 
                 FROM Songs 
-                WHERE style LIKE '$style' 
-                AND '0' NOT IN(spn) 
+                WHERE style LIKE '$style' AND
                 spn BETWEEN '$difmin' and '$difmax' OR
                 sph BETWEEN '$difmin' and '$difmax' OR
                 spa BETWEEN '$difmin' and '$difmax'  
@@ -77,12 +80,12 @@ if (isset($_POST['legg'])) {
 
 }  else {
 
-        $sql = "SELECT genre,song,artist,spn,sph,spa,songid,style 
+        $sql = "SELECT songid,genre,song,artist,spn,sph,spa,style 
                 FROM Songs 
-                WHERE '$leg' NOT IN(style) AND
-                spn BETWEEN '$difmin' and '$difmax' OR
+                WHERE spn BETWEEN '$difmin' and '$difmax' OR
                 sph BETWEEN '$difmin' and '$difmax' OR
-                spa BETWEEN '$difmin' and '$difmax'              
+                spa BETWEEN '$difmin' and '$difmax' AND
+                style!='leg'         
                 ORDER BY RAND() 
                 LIMIT $count";
 }
@@ -92,38 +95,40 @@ $result = $mysqli->query($sql);
 
 if ($result->num_rows > 0) {
     echo "<tr><td colspan=2><table id=\"t1\" align=center>";
-    echo "<col class=\"c1\" /><col class=\"c2\" /><col class=\"c3\" /><col class=\"c4\" /><col class=\"c5\" /><col class=\"c6\" /><col class=\"c7\" />";
-    echo "<tr><th>Genre</th><th>Name</th><th>Artist</th><th>SPN</th><th>SPH</th><th>SPA</th><th>Style Folder</th></tr>";
+    echo "<col class=\"c1\" /><col class=\"c2\" /><col class=\"c3\" />";
+    echo "<tr><th>Song Info</th><th>Difficulty</th><th>Style Folder</th></tr>";
     // output data of each row
-    
+
+$loop=0;
+
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["genre"]."</td><td>".$row["song"]."</td><td>".$row["artist"]."</td>";
+        $loop=$loop+1;
+//echo $loop;
+        echo "<tr><td><div id=\"display-one".$loop."\"><a href='#'>".$row["genre"]."</a></div><div id=\"display-two".$loop."\"><a href='#'>Vetoed!</a></div><div>".$row["song"]."</div><div>".$row["artist"]."</div></div></td>";
         
         if ($row['spa'] >= $difmin && $row['spa'] <= $difmax && $row['sph'] >= $difmin && $row['sph'] <= $difmax && $row['spn'] >= $difmin && $row['spn'] <= $difmax) {
-            echo "<td style=\"text-decoration: underline; color: green\">".$row["spn"]."</td><td style=\"text-decoration: underline; color: green\">".$row["sph"]."</td><td style=\"text-decoration: underline; color: green\">".$row["spa"]."";
+            echo "<td><div>Normal:".$row["spn"]."</div><div>Hyper:".$row["sph"]."</div><div>Another:".$row["spa"]."</div></td>";
             
         } elseif ($row['spn'] >= $difmin && $row['spn'] <= $difmax && $row['sph'] >= $difmin && $row['sph'] <= $difmax) {
-            echo "<td style=\"text-decoration: underline; color: green\">".$row["spn"]."</td><td style=\"text-decoration: underline; color: green\">".$row["sph"]."</td><td>".$row["spa"]."";
+            echo "<td><div>Normal:".$row["spn"]."</div><div>Hyper:".$row["sph"]."</div><div>Another:".$row["spa"]."</div></td>";
         
         } elseif ($row['spa'] >= $difmin && $row['spa'] <= $difmax && $row['sph'] >= $difmin && $row['sph'] <= $difmax) {
-            echo "<td>".$row["spn"]."</td><td style=\"text-decoration: underline; color: green\">".$row["sph"]."</td><td style=\"text-decoration: underline; color: green\">".$row["spa"]."";
+            echo "<td><div>Normal:".$row["spn"]."</div><div>Hyper:".$row["sph"]."</div><div>Another:".$row["spa"]."</div></td>";
         
         } elseif ($row['spn'] >= $difmin && $row['spn'] <= $difmax) {
-            echo "<td style=\"text-decoration: underline; color: green\">".$row["spn"]."</td><td>".$row["sph"]."</td><td>".$row["spa"]."";
+            echo "<td><div>Normal:".$row["spn"]."</div><div>Hyper:".$row["sph"]."</div><div>Another:".$row["spa"]."</div></td>";
 
         } elseif ($row['sph'] >= $difmin && $row['sph'] <= $difmax) {
-            echo "<td>".$row["spn"]."</td><td style=\"text-decoration: underline; color: green\">".$row["sph"]."</td><td>".$row["spa"]."";
+            echo "<td><div>Normal:".$row["spn"]."</div><div>Hyper:".$row["sph"]."</div><div>Another:".$row["spa"]."</div></td>";
 
         } elseif ($row['spa'] >= $difmin && $row['spa'] <= $difmax) {
-            echo "<td>".$row["spn"]."</td><td>".$row["sph"]."</td><td style=\"text-decoration: underline; color: green\">".$row["spa"]."";
-
-
+            echo "<td><div>Normal:".$row["spn"]."</div><div>Hyper:".$row["sph"]."</div><div>Another:".$row["spa"]."</div></td>";
 
         } else {
-            echo "<td>".$row["spn"]."</td><td>".$row["sph"]."</td><td>".$row["spa"]."";
+            echo "<td><div>Normal:".$row["spn"]."</div><div>Hyper:".$row["sph"]."</div><div>Another:".$row["spa"]."</div></td>";
 
         }
-            echo "</td><td><center><img src=./images/styles/".$row["style"].".png height=60 width=197></center></td></tr>";
+            echo "<td><center><img src=./images/styles/".$row["style"].".png height=60 width=197></center></td></tr>";
     }
     echo "</table></td></tr></table>";
 } else {
@@ -137,6 +142,11 @@ echo "<br><br>";
 //echo rand() . "\n <br>";
 
 //echo rand(5, 15);
-
 ?>
+
+
+
+
+
+
 

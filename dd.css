@@ -5,7 +5,7 @@ mark{
 
 @font-face {
   font-family: 'ddraw';
-  src: url('./fonts/2051plastic-alp53.ttf') format('truetype');
+  src: url('./fonts/2051plastic-alp53.woff');
 }
 
 #t1 {border:solid 1px black; border-spacing:4px; border-collapse:separate; font-family:ddraw;}
@@ -20,4 +20,6 @@ mark{
 #t1 .r1 {color:red;}
 #t1 td, #t1 th {border:solid 1px black; padding:4px;font-family:ddraw;}
 
+
+#div {border:solid 1px black; border-spacing:4px; border-collapse:separate; font-family:ddraw;}
 
