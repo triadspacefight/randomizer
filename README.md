@@ -4,10 +4,10 @@ By triadspacefight
 
 # Requirements
 LAMP/WAMP stack<br>
-Database 'randomizer' with Table 'songs', can be imported using iidxrandomizer.csv (to be uploaded on song completion)
+Database 'randomizer' with Table 'songs', can be imported using iidxrandomizer.csv
 
 # Recent Additions:
--Added Copula charts<br>
+-Added All Charts found in IIDX 26: Rootage<br>
 -Added all song folder images in /images<br>
 -Added custom font in /font<br>
 -Changed Leggendaria to show in Song Folder when selecting "Include Leggendaria Charts"<br>
@@ -18,11 +18,7 @@ Database 'randomizer' with Table 'songs', can be imported using iidxrandomizer.c
 -Add mobile views/forms<br>
 -Add doubles difficulties<br>
 -Add weighted values for song selections<br>
--Add IIDX 1st-Pendual to database<br>
--Change song difficulty selector to Min/Max rather than single value<br>
--Add song querys<br>
 -Provide hyperlinks to song information at RemyWiki (https://remywiki.com/)<br>
--Utilize jQuery modals for song information and/or chart mappings
 
 # Stretch Goals:
 -Android/iOS App<br>
